@@ -1,66 +1,39 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Проект имеет базовый функционал:
+- Показ страницы с товарами. Товары расположены в карточках, где видно их название, стоимость, остаток на складе и изображение. Товары можно добавлять в корзину.
+  
+![image](https://github.com/user-attachments/assets/23e026c7-c3c1-4534-851f-858661747cfa)
+- Показ страниц с описанием товара. Перейти на эти страницы можно со страницы со всеми товарами, кликнув на изображение товара.
+  
+![image](https://github.com/user-attachments/assets/458d744e-f01e-41bb-b715-5f707ced2a4b)
+- После того, как товар добавили в корзину, у кнопки "В корзину" меняется название и оформление, она становится неактивной. В корзине изменяется количество товаров, что наглядно можно увидеть у иконки-корзины. Пользователь получает уведомление, что товар успешно добавился в корзину.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![image](https://github.com/user-attachments/assets/fecb7e01-6771-4ffc-8e98-9fc303cf3855)
+- Кнопка "В корзину" также меняется и на странице с товаром, который был добавлен в корзину.
 
-## About Laravel
+![image](https://github.com/user-attachments/assets/71852fd3-6584-4145-a331-8fda45426b22)
+- В корзине можно изменять количество товара, удалять товар из корзины и очищать корзину. Если пользователь уменьшает количество товара в корзине до 0, товар удаляется из корзины. Из корзины можно перейти на страницу с товаром, который находится в корзине, кликнув на изображение или название товара.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![image](https://github.com/user-attachments/assets/aa16a25e-d807-4761-8eca-1130cc5816e4)
+- Максимальное количество товара в корзине равно остатку этого товара на складе. Пользователь получит уведомление в случае, если попытается преодолеть максимальное количество.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![image](https://github.com/user-attachments/assets/c4882420-9b4c-48c9-b052-336903e9ceba)
+- Показ страницы с оформлением товара. На страницу с оформлением товара можно перейти из корзины, нажав на кнопку "Оформить заказ". На странице пользователь должен ввести своё имя и почту.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![image](https://github.com/user-attachments/assets/a5b0c81b-9dd5-4dd8-b817-ffccb883bd03)
+- После оформления заказа пользователь получает уведомление, что заказ успешно оформлен. Корзина обнуляется.
 
-## Learning Laravel
+![image](https://github.com/user-attachments/assets/5d7638c3-96cc-4a63-bcfa-f926809d3015)
+- Если товара нет в наличии, пользователь не сможет добавить его в корзину и получит соответствующее уведомление
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![image](https://github.com/user-attachments/assets/32bfed63-dd20-4fc4-89c5-8b6f4291abc1)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Техническая составляющая:
+- Для заполнения БД тестовыми данными использовались классы-наполнители.
+- Данные корзины пользователя хранятся в сессии.
+- База данных состоит из 3 таблиц: products (продукты), orders (заказы), order_product (вспомогательная таблица, позволяющая исключить связь многие-ко-многим).
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
